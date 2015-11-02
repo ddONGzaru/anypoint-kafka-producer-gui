@@ -1,0 +1,74 @@
+#debug: true
+
+#active profiles :: [dev|prod|stage|test]
+spring:
+  profiles:
+    active: test
+
+#datasource
+datasource:
+  driver-class-name: org.mariadb.jdbc.Driver
+  username: amg
+  password: '*emflaj*'
+
+#kafka
+kafka:
+  metadata.broker.list: localhost:9092,localhost:9093
+  zookeeper:
+    url: localhost:2181
+    session.timeout.ms: 4000
+    sync.timeout.ms: 200
+  auto.commit.interval.ms: 1000
+  group.id: anypoint.tv.group
+  topic:
+      log.collector: log.collector.test.0002
+      log.collector.thread.nums: 4
+      realtime.analytics: realtime.analytics.test.0001
+      realtime.analytics.thread.nums: 4
+
+#log-impresson
+log.impression:
+  csv.file.path: /tmp/csv/impresson-log/
+  table.name:
+    genre: ImpressionLogGenre
+    period: ImpressionLogPeriod
+    region: ImpressionLogRegion
+    campaign.genre: ImpressionLogCampaignGenre
+    campaign.period: ImpressionLogCampaignPeriod
+    campaign.region: ImpressionLogCampaignRegion
+
+#dataset
+dataset.dir: "2015-10-28"
+
+#logging
+logging.config: classpath:logback.xml
+
+--- #profiles :: dev
+spring:
+
+  #profiles
+  profiles: dev
+
+#datasource
+datasource:
+  jdbc-url: jdbc:mysql://211.110.154.197/anypoint?characterEncoding=utf8&amp;useUnicode=true&amp;autoReconnect=true&amp;zeroDateTimeBehavior=convertToNull
+
+--- #profiles :: test
+
+spring:
+  #profiles
+  profiles: test
+
+#datasource
+datasource:
+  jdbc-url: jdbc:mysql://211.110.154.197/anypoint?characterEncoding=utf8&amp;useUnicode=true&amp;autoReconnect=true&amp;zeroDateTimeBehavior=convertToNull
+
+--- #profiles :: prod
+spring:
+
+  #profiles
+  profiles: prod
+
+#datasource
+datasource:
+  jdbc-url: jdbc:mysql://211.110.154.197/anypoint?characterEncoding=utf8&amp;useUnicode=true&amp;autoReconnect=true&amp;zeroDateTimeBehavior=convertToNull

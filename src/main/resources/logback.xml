@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration scan="true" scanPeriod="30 seconds">
+
+    <include resource="org/springframework/boot/logging/logback/base.xml" />
+
+    <!-- variable properties -->
+    <!--
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%-25(%d{HH:mm:ss} [%thread]) %-5level %logger{36}\(%4L\) - %msg%n</pattern>
+        </encoder>
+    </appender>
+    -->
+
+    <!-- ALL > TRACE > DEBUG > INFO > WARN > ERROR > OFF -->
+
+    <logger name="tv.anypoint" level="DEBUG"/>
+
+    <!-- Framework Category -->
+    <logger name="org.apache" level="WARN" />
+
+    <logger name="org.springframework" level="WARN" />
+
+    <logger name="org.hibernate.SQL" level="WARN" />
+    <logger name="org.hibernate.type" level="WARN" />
+    <logger name="org.hibernate.engine.query" level="WARN" />
+    <logger name="org.hibernate.jdbc" level="OFF" />
+
+    <root level="WARN">
+        <appender-ref ref="CONSOLE" />
+    </root>
+
+
+</configuration>

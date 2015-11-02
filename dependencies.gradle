@@ -1,0 +1,41 @@
+/*
+ ##################################################
+ #
+ # anypoint-jetstream Gradle Dependencies
+ #
+ ##################################################
+ */
+
+dependencies {
+
+	//___compile___
+
+	//spring
+	compile 'org.springframework.boot:spring-boot-starter'
+	compile 'org.springframework:spring-jdbc:4.1.8.RELEASE'
+
+	//jpa & datasource
+	compile 'org.mariadb.jdbc:mariadb-java-client:1.2.2'
+	compile 'com.zaxxer:HikariCP:2.3.1'
+
+	//etc
+	compile 'com.google.guava:guava:17.0'
+	compile 'joda-time:joda-time:2.3'
+	compile 'com.esotericsoftware:kryo:3.0.0'
+	compile 'org.apache.kafka:kafka_2.10:0.8.2.1'
+	compile 'org.apache.kafka:kafka-clients:0.8.2.1'
+	compile 'commons-io:commons-io:2.4'
+	compile 'org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final'
+
+
+	//___provided___
+	provided 'org.projectlombok:lombok:1.12.6'
+	provided files("${System.properties['java.home']}/lib/ext/jfxrt.jar")
+	provided files("${System.properties['java.home']}/../lib/ant-javafx.jar")
+
+	//provided "org.springframework.boot:spring-boot-configuration-processor"
+
+
+	//___testCompile___
+
+}

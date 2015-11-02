@@ -1,0 +1,49 @@
+
+/*
+    _____ build config _____
+ */
+buildscript {
+    ext {
+        springBootVersion = SPRING_BOOT_VERSION;
+    }
+    repositories {
+        maven { url 'http://repo.spring.io/plugins-release' }
+        maven {
+            url 'http://maven.dreamer.co.kr/content/groups/public'
+            credentials {
+                username MAVEN_USER_ID
+                password MAVEN_USER_PASSWORD
+            }
+        }
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${SPRING_BOOT_VERSION}")
+        classpath 'org.springframework.build.gradle:propdeps-plugin:0.0.7'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'propdeps'
+apply plugin: 'spring-boot'
+
+/*
+    _____ base config _____
+ */
+apply from: 'config-base.gradle'
+
+/*
+    _____ dependencies config _____
+ */
+apply from: 'dependencies.gradle'
+
+jar {
+    baseName = 'anypoint-kafka-producer'
+    version = JAR_VERSION
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.7'
+}

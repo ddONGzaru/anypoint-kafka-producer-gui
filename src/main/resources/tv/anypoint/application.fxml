@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import java.lang.*?>
+<?import java.net.URL?>
+<GridPane alignment="TOP_CENTER" hgap="10" styleClass="root" vgap="15" xmlns="http://javafx.com/javafx/8"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="tv.anypoint.gui.ActionController">
+
+    <children>
+        <Text id="main-text" text="Kafka Producer" textAlignment="CENTER" GridPane.halignment="CENTER"
+            GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="4" >
+            <GridPane.margin>
+                <Insets bottom="10" left="0" right="0" top="30" />
+           </GridPane.margin>
+        </Text>
+
+        <Label text="PAGE" GridPane.halignment="RIGHT"
+            GridPane.rowIndex="1" GridPane.columnIndex="0">
+            <GridPane.margin>
+                <Insets bottom="0" left="0" right="10" top="0" />
+            </GridPane.margin>
+        </Label>
+        <TextField fx:id="page" GridPane.halignment="LEFT" maxWidth="80" text="1"
+            GridPane.rowIndex="1" GridPane.columnIndex="1" />
+   
+        <Label text="SIZE" GridPane.halignment="RIGHT"
+            GridPane.rowIndex="1" GridPane.columnIndex="2">
+            <GridPane.margin>
+                <Insets bottom="0" left="0" right="10" top="0" />
+            </GridPane.margin>
+        </Label>
+        <ChoiceBox fx:id="size" value="10,000" GridPane.halignment="LEFT"
+            GridPane.rowIndex="1" GridPane.columnIndex="3">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="10,000" />
+                    <String fx:value="100,000" />
+                    <String fx:value="300,000" />
+                    <String fx:value="500,000" />
+                    <String fx:value="1,000,000" />
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+
+        <CheckBox fx:id="isTruncateTable" GridPane.halignment="CENTER" selected="true"
+            GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="4">
+            작업 전에 뷰용 테이블 데이터를 전부 삭제합니다.
+            <GridPane.margin>
+                <Insets bottom="0" left="0" right="0" top="10" />
+            </GridPane.margin>
+        </CheckBox>
+   
+        <HBox alignment="BOTTOM_RIGHT"
+            GridPane.rowIndex="3" GridPane.columnIndex="3">
+            <children>
+                <Button fx:id="execBtn" onAction="#handleExecuteButtonAction" text="실행" />
+            </children>
+            <GridPane.margin>
+                <Insets bottom="0" left="50" right="80" top="0" />
+            </GridPane.margin>
+        </HBox>
+   
+        <TextArea fx:id="console" editable="false" prefRowCount="12" prefWidth="420" wrapText="true"
+            GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.columnSpan="4">
+            <GridPane.margin>
+                <Insets bottom="0" left="50" right="50" top="10" />
+            </GridPane.margin>
+        </TextArea>
+
+    </children>
+
+    <stylesheets>
+        <URL value="@application.css" />
+    </stylesheets>
+   <columnConstraints>
+      <ColumnConstraints maxWidth="200" minWidth="150.0" prefWidth="160.0" />
+      <ColumnConstraints maxWidth="100" minWidth="150.0" prefWidth="220.0" />
+      <ColumnConstraints maxWidth="200" minWidth="50.0" prefWidth="160.0" />
+      <ColumnConstraints maxWidth="100" minWidth="250.0" prefWidth="220.0" />
+<!--      <ColumnConstraints maxWidth="140" minWidth="130.0" prefWidth="160.0" />
+      <ColumnConstraints maxWidth="260" minWidth="270.0" prefWidth="220.0" />-->
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+
+</GridPane>

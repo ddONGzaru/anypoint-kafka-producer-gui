@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/build.gradle" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/build/classes/main/tv/anypoint/kafka/producer/gui/application.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/config-base.gradle" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dependencies.gradle" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gradle.properties" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/tv/anypoint/AppRunner.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/tv/anypoint/config/AppConfig.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/tv/anypoint/domain/ImpressionLog.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/tv/anypoint/domain/ImpressionLogCampaignGenre.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/tv/anypoint/domain/ImpressionLogCampaignPeriod.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/tv/anypoint/domain/ImpressionLogCampaignRegion.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/tv/anypoint/domain/ImpressionLogGenre.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/tv/anypoint/domain/ImpressionLogPeriod.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/tv/anypoint/domain/ImpressionLogRegion.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/tv/anypoint/gui/ActionController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/tv/anypoint/kafka/DataSetReader.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/tv/anypoint/kafka/TestResultReporter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/tv/anypoint/kafka/TopicCreator.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/tv/anypoint/kafka/TopicDeleter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/tv/anypoint/kafka/producer/KafkaMessageProducer.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/tv/anypoint/kafka/producer/KafkaMessageWorker.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/tv/anypoint/kafka/producer/ProducerFactory.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/tv/anypoint/kafka/producer/RoundRobinPartitioner.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/tv/anypoint/kafka/producer/gui/Controller.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/tv/anypoint/kafka/producer/gui/application.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/tv/anypoint/kafka/producer/gui/application.fxml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/tv/anypoint/kafka/producer/gui/background.jpg" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/tv/anypoint/utils/DateUtils.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/tv/anypoint/utils/FileUtils.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/tv/anypoint/utils/FileUtilsException.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/tv/anypoint/utils/Result.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/lang_en.properties" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/lang_ro.properties" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/logback.xml" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/tv/anypoint/application.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/tv/anypoint/application.fxml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/tv/anypoint/background.jpg" charset="UTF-8" />
+  </component>
+</project>

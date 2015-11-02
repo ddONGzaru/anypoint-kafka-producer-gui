@@ -1,0 +1,46 @@
+/*
+ ##################################################
+ #
+ # anypoint-jetstream Gradle Base Config
+ #
+ ##################################################
+ */
+
+/*
+    _____ repo config _____
+ */
+repositories {
+    jcenter()
+    maven {
+        url 'http://maven.dreamer.co.kr/content/groups/public'
+        credentials {
+            username MAVEN_USER_ID
+            password MAVEN_USER_PASSWORD
+        }
+    }
+}
+
+/*
+    _____ compiler config _____
+ */
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+compileJava.dependsOn(processResources)
+
+/*
+    _____ encoding config _____
+ */
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+/*
+    _____ sourceSets config _____
+ */
+sourceSets {
+    main.output.resourcesDir = sourceSets.main.output.classesDir
+    test.output.resourcesDir = sourceSets.test.output.classesDir
+}
+
+configurations {
+    compile.exclude module: 'slf4j-log4j12'
+}
