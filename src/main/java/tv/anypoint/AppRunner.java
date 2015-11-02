@@ -20,38 +20,12 @@ import java.util.ResourceBundle;
 @SpringBootApplication
 public class AppRunner extends Application {
 
-    private static String[] args;
+    private static ApplicationContext context;
 
     @Override
     public void start(Stage stage) throws Exception {
 
-        SpringApplication app = new SpringApplication(AppRunner.class);
-
-        app.addListeners(getConfigFileApplicationListener(args));
-        ApplicationContext context = app.run(args);
-
-        ActionController controller = context.getBean(ActionController.class);
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("application.fxml"));
-        loader.setResources(ResourceBundle.getBundle("lang", new Locale("en", "EN")));
-
-        Parent root;
-        try {
-            loader.setControllerFactory(new Callback<Class<?>, Object>() {
-                public Object call(Class<?> aClass) {
-                    return controller;
-                }
-            });
-
-            root = (Parent) loader.load();
-
-        } catch (IOException e) {
-
-            throw new RuntimeException(e);
-        }
-
-        //FXMLLoader fxmlLoader = new FXMLLoader();
-        //Parent root = fxmlLoader.load(new ClassPathResource("application.fxml").getInputStream());
+        Parent root = findRoot();
 
         Scene scene = new Scene(root, 600, 450);
         stage.setScene(scene);
@@ -60,11 +34,37 @@ public class AppRunner extends Application {
 
     }
 
+    private Parent findRoot() {
+
+        ActionController controller = context.getBean(ActionController.class);
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("gui/application.fxml"));
+
+        loader.setResources(ResourceBundle.getBundle("lang", new Locale("en", "EN")));
+        loader.setControllerFactory(new Callback<Class<?>, Object>() {
+            public Object call(Class<?> aClass) {
+                return controller;
+            }
+        });
+
+        Parent root = null;
+
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return root;
+    }
+
+
     public static void main(String[] args) {
 
+        SpringApplication app = new SpringApplication(AppRunner.class);
 
-
-        AppRunner.args = args;
+        app.addListeners(getConfigFileApplicationListener(args));
+        context = app.run(args);
 
         launch(args);
     }
