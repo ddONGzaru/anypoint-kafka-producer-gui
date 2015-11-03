@@ -28,7 +28,7 @@ public class KafkaMessageProducer {
     @Autowired
     private static JdbcTemplate jdbcTemplate;
 
-    public void process(TextArea textArea, int page, int size, boolean enableTruncateTableJob) {
+    public void process(int page, int size, boolean enableTruncateTableJob) {
 
         if (enableTruncateTableJob) {
             //TestResultReporter.truncateTables(jdbcTemplate.getDataSource());
@@ -45,7 +45,7 @@ public class KafkaMessageProducer {
 
         for (int i = 0; i < 10; i++) {
 
-            Runnable worker = new KafkaMessageWorker(topic, jdbcTemplate, page + i, size, page == 1, datasetDir, textArea);
+            Runnable worker = new KafkaMessageWorker(topic, jdbcTemplate, page + i, size, page == 1, datasetDir);
 
             executor.execute(worker);
         }

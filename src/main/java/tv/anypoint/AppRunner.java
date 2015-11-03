@@ -3,6 +3,7 @@ package tv.anypoint;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
@@ -40,10 +41,10 @@ public class AppRunner extends Application {
         stage.setScene(scene);
         stage.setTitle("Anypoint Kafka Producer ver-1.0.0");
 
-
-
         stage.show();
         stage.setResizable(false);
+
+        //scene.setCursor(Cursor.WAIT);
     }
 
     private GridPane findRoot() {

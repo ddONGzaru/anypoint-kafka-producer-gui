@@ -5,11 +5,8 @@ spring:
   profiles:
     active: test
 
-#datasource
-datasource:
-  driver-class-name: org.mariadb.jdbc.Driver
-  username: amg
-  password: '*emflaj*'
+#dataset
+dataset.dir: "2015-10-28"
 
 #kafka
 kafka:
@@ -37,11 +34,14 @@ log.impression:
     campaign.period: ImpressionLogCampaignPeriod
     campaign.region: ImpressionLogCampaignRegion
 
-#dataset
-dataset.dir: "2015-10-28"
-
 #logging
 logging.config: classpath:logback.xml
+
+#datasource
+datasource:
+  driver-class-name: org.mariadb.jdbc.Driver
+  username: amg
+  password: '*emflaj*'
 
 --- #profiles :: dev
 spring:

@@ -45,14 +45,12 @@ public class ActionController {
         console.setText("");
 
         //console.getParent().getScene().setCursor(Cursor.WAIT);
-
         //Platform.runLater(() -> console.getParent().getScene().setCursor(Cursor.WAIT));
 
-        producer.process(console, pageParam, sizeParam, enableTruncateTableJob);
+        producer.process(pageParam, sizeParam, enableTruncateTableJob);
 
         //Platform.runLater(() -> console.getParent().getScene().setCursor(Cursor.DEFAULT));
-
-        //console.getParent().getScene().setCursor(Cursor.DEFAULT);
+        //console.getParent().getParent().getParent().getScene().setCursor(Cursor.CLOSED_HAND);
     }
 
     public void handleMouseEnteredAction() {
