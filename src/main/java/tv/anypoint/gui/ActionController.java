@@ -1,5 +1,6 @@
 package tv.anypoint.gui;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Cursor;
@@ -43,11 +44,15 @@ public class ActionController {
 
         console.setText("");
 
-        execBtn.setCursor(Cursor.WAIT);
+        //console.getParent().getScene().setCursor(Cursor.WAIT);
+
+        //Platform.runLater(() -> console.getParent().getScene().setCursor(Cursor.WAIT));
 
         producer.process(console, pageParam, sizeParam, enableTruncateTableJob);
 
-        execBtn.setCursor(Cursor.DEFAULT);
+        //Platform.runLater(() -> console.getParent().getScene().setCursor(Cursor.DEFAULT));
+
+        //console.getParent().getScene().setCursor(Cursor.DEFAULT);
     }
 
     public void handleMouseEnteredAction() {

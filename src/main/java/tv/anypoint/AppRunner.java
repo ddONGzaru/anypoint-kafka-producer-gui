@@ -38,7 +38,7 @@ public class AppRunner extends Application {
 
         Scene scene = new Scene(root, 600, 450);
         stage.setScene(scene);
-        stage.setTitle("Anypoint Log Connector ver-1.0.0");
+        stage.setTitle("Anypoint Kafka Producer ver-1.0.0");
 
 
 

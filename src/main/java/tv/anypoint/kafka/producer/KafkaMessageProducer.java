@@ -19,22 +19,16 @@ import java.util.concurrent.Executors;
 @Component
 public class KafkaMessageProducer {
 
-    @Value("kafka.topic.log.collector")
+    @Value("${kafka.topic.log.collector}")
     private String topic;
 
-    @Value("dataset.dir")
+    @Value("${dataset.dir}")
     private String datasetDir;
 
     @Autowired
     private static JdbcTemplate jdbcTemplate;
 
     public void process(TextArea textArea, int page, int size, boolean enableTruncateTableJob) {
-
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
 
         if (enableTruncateTableJob) {
             //TestResultReporter.truncateTables(jdbcTemplate.getDataSource());

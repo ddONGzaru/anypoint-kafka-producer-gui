@@ -21,7 +21,10 @@ public class LogbackLogAppender  extends AppenderBase<Object> {
     @Override
     protected void append(Object eventObject) {
 
-        final String message = eventObject.toString() + "\n";
+        String timestamp = DateUtils.getCurrentTimestampAsString();
+        timestamp = timestamp.length() == 22 ? timestamp + "0" : timestamp;
+
+        final String message =  timestamp + eventObject.toString() + "\n";
 
         // Append formatted message to text area using the Thread.
         try {
