@@ -30,3 +30,9 @@ root {
     -fx-background-color: linear-gradient(#61a2b1, #2A5058);
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
 }
+
+.separator *.line {
+    -fx-border-style: dotted;
+    -fx-border-width: 1 1 1 1; /* its make really one-pixel-border */
+    -fx-border-color: #EEEEEE;
+}
