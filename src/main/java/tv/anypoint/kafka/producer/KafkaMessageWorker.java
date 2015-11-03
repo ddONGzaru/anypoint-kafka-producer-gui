@@ -41,11 +41,11 @@ public class KafkaMessageWorker implements Runnable {
 
     private String datasetDir = "2015-10-28";
 
-    private KafkaMessageProducer.Console console = new KafkaMessageProducer.Console();
+    //private KafkaMessageProducer.Console console = new KafkaMessageProducer.Console();
 
-    private TextArea textArea;
+    //private TextArea textArea;
 
-    PrintStream ps;
+    //PrintStream ps;
 
     KafkaMessageWorker(String topic, JdbcTemplate jdbcTemplate, int page, int size,
            boolean decreaseIndex, String datasetDir, TextArea textArea) {
@@ -57,11 +57,11 @@ public class KafkaMessageWorker implements Runnable {
         this.size = size;
 
         //this.datasetDir = datasetDir;
-        this.textArea = textArea;
+        //this.textArea = textArea;
 
         producer = ProducerFactory.getInstance();
 
-        console.setTextArea(textArea);
+        //console.setTextArea(textArea);
 
     }
 
@@ -83,15 +83,15 @@ public class KafkaMessageWorker implements Runnable {
         String now = DateUtils.getCurrentTimestampAsString();
         String logTimestamp = MessageFormat.format("[{0}] ", now);
 
-        PrintStream ps = new PrintStream(console, true);
+        //PrintStream ps = new PrintStream(console, true);
 
-        System.setOut(ps);
-        System.setErr(ps);
+        //System.setOut(ps);
+        //System.setErr(ps);
 
-        console.write(logTimestamp + "Dataset 레코드 총계: " + messageList.size());
+        //console.write(logTimestamp + "Dataset 레코드 총계: " + messageList.size());
         log.info(logTimestamp + "Dataset 레코드 총계: " + messageList.size());
 
-        ps.close();
+        //ps.close();
 
         producer.close();
 

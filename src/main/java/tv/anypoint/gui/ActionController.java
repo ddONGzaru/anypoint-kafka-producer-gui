@@ -34,14 +34,11 @@ public class ActionController {
         int pageParam = Integer.valueOf(page.getText());
 
         int sizeParam = Integer.valueOf(size.getSelectionModel().getSelectedItem().toString().replaceAll(",", ""));
+        sizeParam = sizeParam / 10;
 
         boolean enableTruncateTableJob = isTruncateTable.isSelected();
 
         console.setText("");
-
-        /*if (producer == null) {
-            producer = new KafkaMessageProducer();
-        }*/
 
         producer.process(console, pageParam, sizeParam, enableTruncateTableJob);
     }

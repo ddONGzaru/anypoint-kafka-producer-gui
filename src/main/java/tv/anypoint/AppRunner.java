@@ -1,9 +1,12 @@
 package tv.anypoint;
 
 import javafx.application.Application;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
+import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.TextArea;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import org.springframework.boot.SpringApplication;
@@ -12,6 +15,7 @@ import org.springframework.boot.context.config.ConfigFileApplicationListener;
 import org.springframework.context.ApplicationContext;
 import tv.anypoint.gui.ActionController;
 import tv.anypoint.utils.FileUtils;
+import tv.anypoint.utils.LogbackLogAppender;
 
 import java.io.IOException;
 import java.util.Locale;
@@ -25,16 +29,24 @@ public class AppRunner extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-        Parent root = findRoot();
+        GridPane root = findRoot();
+
+        ObservableList<Node> ddd = root.getChildren();
+
+
+        LogbackLogAppender.setTextArea((TextArea)ddd.get(7));
 
         Scene scene = new Scene(root, 600, 450);
         stage.setScene(scene);
         stage.setTitle("Anypoint Log Connector ver-1.0.0");
+
+
+
         stage.show();
 
     }
 
-    private Parent findRoot() {
+    private GridPane findRoot() {
 
         ActionController controller = context.getBean(ActionController.class);
 
@@ -47,10 +59,10 @@ public class AppRunner extends Application {
             }
         });
 
-        Parent root = null;
+        GridPane root = null;
 
         try {
-            root = loader.load();
+            root = (GridPane) loader.load();
         } catch (IOException e) {
             e.printStackTrace();
         }
