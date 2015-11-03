@@ -30,7 +30,7 @@ public class DataSetReader {
 
         String datasetPrefix = datasetDir.replaceAll("-", "");
 
-        String fileName = datasetPrefix + "_impression-log_offset_" + String.format("%06d", page) + "_size_" + size + ".jdo";
+        String fileName = datasetPrefix + "_impression-log_offset_" + String.format("%06d", page) + "_size_" + String.format("%06d", size) + ".jdo";
 
         List<ImpressionLog> objList;
 
