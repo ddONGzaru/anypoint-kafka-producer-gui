@@ -2,8 +2,9 @@ root {
     display: block;
 }
 .root {
-    -fx-background-image: url("background.jpg");
+    -fx-background-image: url("images-0006.png");
 }
+
 .label {
     -fx-font-size: 12px;
     -fx-font-weight: bold;

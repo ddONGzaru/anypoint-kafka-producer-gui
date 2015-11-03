@@ -1,5 +1,6 @@
 package tv.anypoint.kafka.producer;
 
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,6 +63,12 @@ public class KafkaMessageProducer {
         log.debug("Application :: End...");
         log.debug("Kafka Producer :: elapsed time  -> " + stopWatch.getTotalTimeMillis());
 
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Anypoint Kafka Producer ver-1.0.0");
+        alert.setHeaderText("작업이 완료되었습니다.");
+        alert.setContentText("Kafka Producer :: elapsed time  -> " + stopWatch.getTotalTimeMillis());
+
+        alert.showAndWait();
 
     }
 
