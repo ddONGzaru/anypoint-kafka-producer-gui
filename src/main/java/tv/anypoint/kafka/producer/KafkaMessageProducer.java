@@ -30,8 +30,14 @@ public class KafkaMessageProducer {
 
     public void process(TextArea textArea, int page, int size, boolean enableTruncateTableJob) {
 
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         if (enableTruncateTableJob) {
-            TestResultReporter.truncateTables(jdbcTemplate.getDataSource());
+            //TestResultReporter.truncateTables(jdbcTemplate.getDataSource());
         }
 
         log.debug("Application :: Start..." );

@@ -43,7 +43,7 @@ public class AppRunner extends Application {
 
 
         stage.show();
-
+        stage.setResizable(false);
     }
 
     private GridPane findRoot() {

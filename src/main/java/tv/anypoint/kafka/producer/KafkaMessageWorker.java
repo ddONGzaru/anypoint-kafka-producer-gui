@@ -70,7 +70,7 @@ public class KafkaMessageWorker implements Runnable {
 
         List<ImpressionLog> messageList = Lists.newArrayList();
 
-        DataSetReader reader = new DataSetReader();
+        /*DataSetReader reader = new DataSetReader();
 
         messageList = reader.read(datasetDir, page, size);
 
@@ -93,7 +93,7 @@ public class KafkaMessageWorker implements Runnable {
 
         //ps.close();
 
-        producer.close();
+        producer.close();*/
 
     }
 
