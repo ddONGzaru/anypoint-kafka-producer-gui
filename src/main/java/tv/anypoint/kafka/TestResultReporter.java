@@ -5,6 +5,7 @@ import org.springframework.core.io.FileSystemResource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.init.ScriptUtils;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import tv.anypoint.utils.FileUtils;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -92,10 +93,24 @@ public class TestResultReporter {
 
     public static void truncateTables(DataSource dataSource) {
 
-        String sqlScriptPath = System.getProperty("user.dir") + "/src/dataset/sql/truncate.sql";
+        String sqlScriptPath;
+
+        String userDir = System.getProperty("user.dir");
+
+        if (FileUtils.existsDir(userDir + "/build/classes/main/config/sql")) {
+            sqlScriptPath = userDir + "/build/classes/main/config/sql/truncate.sql";
+        } else {
+            sqlScriptPath = userDir + "/config/sql/truncate.sql";
+        }
 
         try(Connection conn = dataSource.getConnection()) {
+
+            log.debug("Table Truncate Job :: Start...");
+
             ScriptUtils.executeSqlScript(conn, new FileSystemResource(sqlScriptPath));
+
+            log.debug("Table Truncate Job :: End...");
+
         } catch (SQLException e) {
             log.error(e.getMessage());
         }

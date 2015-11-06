@@ -34,4 +34,6 @@ public class ImpressionLogGenre implements Serializable {
     private int programProvider;
 
     private int inventory;
+
+    private int deviceTotalImpression;
 }

@@ -35,9 +35,9 @@ public class AppRunner extends Application {
         ObservableList<Node> ddd = root.getChildren();
 
 
-        LogbackLogAppender.setTextArea((TextArea)ddd.get(8));
+        LogbackLogAppender.setTextArea((TextArea)ddd.get(9));
 
-        Scene scene = new Scene(root, 600, 450);
+        Scene scene = new Scene(root, 680, 470);
         stage.setScene(scene);
         stage.setTitle("Anypoint Kafka Producer ver-1.0.0");
 
@@ -93,7 +93,7 @@ public class AppRunner extends Application {
         if (FileUtils.existsFile(userDir + configFile)) {
             configFilePath = userDir + configFile;
         } else {
-            configFilePath = userDir + "/anypoint-kafka-producer.conf";
+            configFilePath = userDir + "/config/anypoint-kafka-producer.conf";
         }
 
         ConfigFileApplicationListener listener = new ConfigFileApplicationListener();

@@ -3,7 +3,9 @@ package tv.anypoint.kafka;
 import com.esotericsoftware.kryo.Kryo;
 import com.esotericsoftware.kryo.io.ByteBufferInput;
 import com.esotericsoftware.kryo.io.KryoObjectInput;
+import com.esotericsoftware.kryo.serializers.CompatibleFieldSerializer;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.io.IOUtils;
 import tv.anypoint.domain.ImpressionLog;
 import tv.anypoint.utils.FileUtils;
 
@@ -22,10 +24,10 @@ public class DataSetReader {
         String fileDir;
         String userDir = System.getProperty("user.dir");
 
-        if (FileUtils.existsDir(userDir + "/src/dataset/")) {
-            fileDir = userDir + "/src/dataset/" + datasetDir + "/";
+        if (FileUtils.existsDir(userDir + "/src/main/resources/config/dataset/")) {
+            fileDir = userDir + "/src/main/resources/config/dataset/" + datasetDir + "/";
         } else {
-            fileDir = userDir + "/" + datasetDir + "/";
+            fileDir = userDir + "/config/dataset/" + datasetDir + "/";
         }
 
         String datasetPrefix = datasetDir.replaceAll("-", "");

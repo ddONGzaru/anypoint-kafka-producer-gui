@@ -1,0 +1,6 @@
+truncate table ImpressionLogCampaignGenre;
+truncate table ImpressionLogCampaignPeriod;
+truncate table ImpressionLogCampaignRegion;
+truncate table ImpressionLogGenre;
+truncate table ImpressionLogPeriod;
+truncate table ImpressionLogRegion;

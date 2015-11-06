@@ -44,4 +44,6 @@ public class ImpressionLogCampaignRegion implements Serializable {
     private int zipCode;
 
     private int inventory;
+
+    private int deviceTotalImpression;
 }

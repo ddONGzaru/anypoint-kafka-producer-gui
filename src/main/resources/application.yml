@@ -6,7 +6,7 @@ spring:
     active: test
 
 #dataset
-dataset.dir: "2015-10-28"
+dataset.dir: "2015-11-02"
 
 #kafka
 kafka:
@@ -18,10 +18,8 @@ kafka:
   auto.commit.interval.ms: 1000
   group.id: anypoint.tv.group
   topic:
-      log.collector: log.collector.test.0002
+      log.collector: log.collector.test.0005
       log.collector.thread.nums: 4
-      realtime.analytics: realtime.analytics.test.0001
-      realtime.analytics.thread.nums: 4
 
 #log-impresson
 log.impression:
