@@ -1,5 +1,7 @@
 package tv.anypoint.kafka.producer;
 
+import com.esotericsoftware.kryo.Kryo;
+import com.esotericsoftware.kryo.io.Output;
 import kafka.javaapi.producer.Producer;
 import kafka.producer.KeyedMessage;
 import lombok.extern.slf4j.Slf4j;
@@ -9,6 +11,7 @@ import tv.anypoint.kafka.DataSetReader;
 import tv.anypoint.utils.DateUtils;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.text.MessageFormat;
 import java.util.Date;
@@ -115,16 +118,22 @@ public class KafkaMessageWorker implements Runnable {
 
     }
 
-    private byte[] toByteArray(Object object) {
+    private Kryo kryo = new Kryo();
 
-        try(ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            ObjectOutputStream oos = new ObjectOutputStream(bos)) {
+    private byte[] toByteArray(ImpressionLog impressionLog) {
 
-            oos.writeObject(object);
-            return bos.toByteArray();
+        kryo.register(ImpressionLog.class);
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        try (ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(16384);
+             Output output = new Output(byteArrayOutputStream)) {
+
+            kryo.writeObject(output, impressionLog);
+            output.close();
+
+            return byteArrayOutputStream.toByteArray();
+
+        } catch (IOException e) {
+            log.error("[KafkaMessageWorker toByteArray ERROR] : {} ", e.getMessage());
             return null;
         }
     }

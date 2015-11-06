@@ -28,7 +28,7 @@ public class KafkaMessageProducer {
     private String datasetDir;
 
     @Autowired
-    private static JdbcTemplate jdbcTemplate;
+    private JdbcTemplate jdbcTemplate;
 
     public void process(int page, int size, boolean enableTruncateTableJob) {
 

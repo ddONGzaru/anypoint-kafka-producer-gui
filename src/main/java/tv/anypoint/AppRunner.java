@@ -35,7 +35,7 @@ public class AppRunner extends Application {
         ObservableList<Node> ddd = root.getChildren();
 
 
-        LogbackLogAppender.setTextArea((TextArea)ddd.get(8));
+        LogbackLogAppender.setTextArea((TextArea)ddd.get(9));
 
         Scene scene = new Scene(root, 680, 470);
         stage.setScene(scene);

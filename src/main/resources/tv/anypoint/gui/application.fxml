@@ -66,15 +66,22 @@
             </GridPane.margin>
         </HBox>
 
+        <Separator orientation="VERTICAL" prefHeight="50"
+            GridPane.rowIndex="1" GridPane.columnIndex="3" GridPane.rowSpan="4">
+            <GridPane.margin>
+                <Insets bottom="0" left="200" right="0" top="0" />
+            </GridPane.margin>
+        </Separator>
+
         <Separator
-            GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.columnSpan="4">
+            GridPane.rowIndex="5" GridPane.columnIndex="0" GridPane.columnSpan="4">
             <GridPane.margin>
                 <Insets bottom="0" left="50" right="50" top="5" />
             </GridPane.margin>
         </Separator>
 
         <TextArea fx:id="console" editable="false" prefRowCount="12" prefWidth="420" wrapText="true"
-            GridPane.rowIndex="5" GridPane.columnIndex="0" GridPane.columnSpan="4">
+            GridPane.rowIndex="6" GridPane.columnIndex="0" GridPane.columnSpan="4">
             <GridPane.margin>
                 <Insets bottom="0" left="50" right="50" top="0" />
             </GridPane.margin>
