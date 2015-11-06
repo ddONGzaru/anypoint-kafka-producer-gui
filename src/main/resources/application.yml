@@ -20,6 +20,7 @@ kafka:
   topic:
       log.collector: log.collector.test.0005
       log.collector.thread.nums: 4
+  msg.max.rows: 5000
 
 #log-impresson
 log.impression:

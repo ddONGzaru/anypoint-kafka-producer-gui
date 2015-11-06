@@ -24,6 +24,9 @@ public class KafkaMessageProducer {
     @Value("${kafka.topic.log.collector}")
     private String topic;
 
+    @Value("${kafka.msg.max.rows}")
+    private int msgMaxRows;
+
     @Value("${dataset.dir}")
     private String datasetDir;
 
@@ -47,7 +50,7 @@ public class KafkaMessageProducer {
 
         for (int i = 0; i < 10; i++) {
 
-            Runnable worker = new KafkaMessageWorker(topic, jdbcTemplate, page + i, size, page == 1, datasetDir);
+            Runnable worker = new KafkaMessageWorker(topic, jdbcTemplate, page + i, size, page == 1, datasetDir, msgMaxRows);
 
             executor.execute(worker);
         }

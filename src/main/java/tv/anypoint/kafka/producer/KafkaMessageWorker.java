@@ -2,6 +2,7 @@ package tv.anypoint.kafka.producer;
 
 import com.esotericsoftware.kryo.Kryo;
 import com.esotericsoftware.kryo.io.Output;
+import com.google.common.collect.Lists;
 import kafka.javaapi.producer.Producer;
 import kafka.producer.KeyedMessage;
 import lombok.extern.slf4j.Slf4j;
@@ -41,8 +42,10 @@ public class KafkaMessageWorker implements Runnable {
 
     private String datasetDir = "2015-10-28";
 
+    private int msgMaxRows;
+
     KafkaMessageWorker(String topic, JdbcTemplate jdbcTemplate, int page, int size,
-           boolean decreaseIndex, String datasetDir) {
+           boolean decreaseIndex, String datasetDir, int msgMaxRows) {
 
         this.topic = topic;
         this.jdbcTemplate = jdbcTemplate;
@@ -51,6 +54,7 @@ public class KafkaMessageWorker implements Runnable {
         this.size = size;
 
         this.datasetDir = datasetDir;
+        this.msgMaxRows = msgMaxRows;
 
         producer = ProducerFactory.getInstance();
     }
@@ -63,12 +67,33 @@ public class KafkaMessageWorker implements Runnable {
         List<ImpressionLog> messageList = reader.read(datasetDir, page, size);
 
 
+        List<List<KeyedMessage<String, byte[]>>> sendMsgList = Lists.newArrayList();
+        List<KeyedMessage<String, byte[]>> sendMsgUnitList = Lists.newArrayList();
+
+        int index = 0;
+
         for (ImpressionLog message : messageList) {
 
-            producer.send(new KeyedMessage<String, byte[]>(topic, generateKey(), toByteArray(message)));
+            index++;
+
+            sendMsgUnitList.add(new KeyedMessage<String, byte[]>(topic, generateKey(), toByteArray(message)));
+
+            if (index % msgMaxRows == 0) {
+
+                sendMsgList.add(sendMsgUnitList);
+                sendMsgUnitList = Lists.newArrayList();
+
+                continue;
+            }
+
+            if (index == messageList.size()) {
+                sendMsgList.add(sendMsgUnitList);
+            }
         }
 
-        log.info("Dataset 레코드 총계: " + messageList.size());
+        sendMsgList.forEach(msgList -> producer.send(msgList));
+
+        log.debug("Dataset 레코드 총계: {}", messageList.size());
 
         producer.close();
 
