@@ -26,7 +26,7 @@
         </Label>
         <TextField fx:id="page" GridPane.halignment="LEFT" maxWidth="80" text="1"
             GridPane.rowIndex="1" GridPane.columnIndex="1" />
-   
+
         <Label text="SIZE" GridPane.halignment="RIGHT"
             GridPane.rowIndex="1" GridPane.columnIndex="2">
             <GridPane.margin>
@@ -42,6 +42,7 @@
                     <String fx:value="300,000" />
                     <String fx:value="500,000" />
                     <String fx:value="1,000,000" />
+                    <String fx:value="3,000,000" />
                 </FXCollections>
             </items>
         </ChoiceBox>
@@ -53,7 +54,7 @@
                 <Insets bottom="0" left="0" right="0" top="10" />
             </GridPane.margin>
         </CheckBox>
-   
+
         <HBox alignment="BOTTOM_RIGHT"
             GridPane.rowIndex="3" GridPane.columnIndex="3">
             <children>
@@ -71,7 +72,7 @@
                 <Insets bottom="0" left="50" right="50" top="5" />
             </GridPane.margin>
         </Separator>
-   
+
         <TextArea fx:id="console" editable="false" prefRowCount="12" prefWidth="420" wrapText="true"
             GridPane.rowIndex="5" GridPane.columnIndex="0" GridPane.columnSpan="4">
             <GridPane.margin>

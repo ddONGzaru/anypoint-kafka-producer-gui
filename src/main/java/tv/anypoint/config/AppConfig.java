@@ -64,7 +64,7 @@ public class AppConfig {
         if (FileUtils.existsFile(userDir + configFile)) {
             configFilePath = userDir + configFile;
         } else {
-            configFilePath = userDir + "/anypoint-kafka-producer.conf";
+            configFilePath = userDir + "/config/anypoint-kafka-producer.conf";
         }
 
         Resource resource = new FileSystemResource(configFilePath);

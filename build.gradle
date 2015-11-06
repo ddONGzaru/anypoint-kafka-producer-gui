@@ -25,6 +25,7 @@ buildscript {
 }
 
 apply plugin: 'java'
+apply plugin: 'groovy'
 apply plugin: 'idea'
 apply plugin: 'propdeps'
 apply plugin: 'spring-boot'
@@ -43,6 +44,19 @@ jar {
     baseName = 'anypoint-kafka-producer'
     version = JAR_VERSION
 }
+
+task copyConfigDir(type: Copy, dependsOn: 'bootRepackage') {
+    into 'build/libs/config'
+    from 'src/main/resources/application.yml'
+
+    rename { String fileName ->
+        fileName.replace('application.yml', 'anypoint-kafka-producer.conf')
+    }
+}
+
+task buildApp
+
+buildApp.dependsOn(copyConfigDir)
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.7'

@@ -35,4 +35,6 @@ public class ImpressionLogCampaignPeriod implements Serializable {
 
     private int inventory;
 
+    private int deviceTotalImpression;
+
 }

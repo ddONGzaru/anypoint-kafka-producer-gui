@@ -1,7 +1,5 @@
 package tv.anypoint.kafka.producer;
 
-import com.google.common.collect.Lists;
-import javafx.scene.control.TextArea;
 import kafka.javaapi.producer.Producer;
 import kafka.producer.KeyedMessage;
 import lombok.extern.slf4j.Slf4j;
@@ -12,7 +10,6 @@ import tv.anypoint.utils.DateUtils;
 
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectOutputStream;
-import java.io.PrintStream;
 import java.text.MessageFormat;
 import java.util.Date;
 import java.util.List;
@@ -68,10 +65,7 @@ public class KafkaMessageWorker implements Runnable {
             producer.send(new KeyedMessage<String, byte[]>(topic, generateKey(), toByteArray(message)));
         }
 
-        String now = DateUtils.getCurrentTimestampAsString();
-        String logTimestamp = MessageFormat.format("[{0}] ", now);
-
-        log.info(logTimestamp + "Dataset 레코드 총계: " + messageList.size());
+        log.info("Dataset 레코드 총계: " + messageList.size());
 
         producer.close();
 

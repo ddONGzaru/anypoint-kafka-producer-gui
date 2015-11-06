@@ -6,7 +6,7 @@ spring:
     active: test
 
 #dataset
-dataset.dir: "2015-10-28"
+dataset.dir: "2015-11-02"
 
 #kafka
 kafka:

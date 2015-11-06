@@ -37,4 +37,6 @@ public class ImpressionLogCampaignGenre implements Serializable {
 
     private int inventory;
 
+    private int deviceTotalImpression;
+
 }

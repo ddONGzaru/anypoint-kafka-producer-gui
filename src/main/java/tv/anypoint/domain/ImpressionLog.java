@@ -49,4 +49,6 @@ public class ImpressionLog implements Serializable {
     private float vtr;
 
     private int zipCode;
+
+    private int inventory;
 }
