@@ -15,6 +15,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.text.MessageFormat;
+import java.text.NumberFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -43,6 +44,8 @@ public class KafkaMessageWorker implements Runnable {
     private String datasetDir = "2015-10-28";
 
     private int msgMaxRows;
+
+    NumberFormat numberFormat = NumberFormat.getNumberInstance();
 
     KafkaMessageWorker(String topic, JdbcTemplate jdbcTemplate, int page, int size,
            boolean decreaseIndex, String datasetDir, int msgMaxRows) {
@@ -93,7 +96,7 @@ public class KafkaMessageWorker implements Runnable {
 
         sendMsgList.forEach(msgList -> producer.send(msgList));
 
-        log.debug("Dataset 레코드 총계: {}", messageList.size());
+        log.debug("Dataset 레코드 총계: {}", numberFormat.format(messageList.size()));
 
         producer.close();
 

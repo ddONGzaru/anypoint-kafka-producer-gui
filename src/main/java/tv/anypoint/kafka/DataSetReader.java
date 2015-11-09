@@ -45,7 +45,7 @@ public class DataSetReader {
 
             objList = (List<ImpressionLog>) objectInput.readObject();
 
-        } catch(IOException | ClassNotFoundException e) {
+        } catch(Exception e) {
 
             log.error(e.getMessage());
             return null;

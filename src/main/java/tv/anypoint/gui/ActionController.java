@@ -42,7 +42,7 @@ public class ActionController {
 
         boolean enableTruncateTableJob = isTruncateTable.isSelected();
 
-        console.setText("");
+        console.clear();
 
         //console.getParent().getScene().setCursor(Cursor.WAIT);
         //Platform.runLater(() -> console.getParent().getScene().setCursor(Cursor.WAIT));

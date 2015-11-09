@@ -35,11 +35,11 @@ public class AppRunner extends Application {
         ObservableList<Node> ddd = root.getChildren();
 
 
-        LogbackLogAppender.setTextArea((TextArea)ddd.get(9));
+        LogbackLogAppender.setTextArea((TextArea)ddd.get(8));
 
         Scene scene = new Scene(root, 680, 470);
         stage.setScene(scene);
-        stage.setTitle("Anypoint Kafka Producer ver-1.0.0");
+        stage.setTitle("Anypoint Kafka Producer ver-1.0.2");
 
         stage.show();
         stage.setResizable(false);
