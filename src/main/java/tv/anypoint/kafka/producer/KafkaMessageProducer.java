@@ -35,7 +35,9 @@ public class KafkaMessageProducer {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public void process(int page, int size, boolean enableTruncateTableJob) {
+    public void process(TextArea console, int page, int size, boolean enableTruncateTableJob) {
+
+        console.clear();
 
         if (enableTruncateTableJob) {
             TestResultReporter.truncateTables(jdbcTemplate.getDataSource());
@@ -80,7 +82,7 @@ public class KafkaMessageProducer {
         log.debug("===================================");
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Anypoint Kafka Producer ver-1.0.2");
+        alert.setTitle("Anypoint Kafka Producer ver-1.0.3");
         alert.setHeaderText("작업이 완료되었습니다.");
         alert.setContentText("Kafka Producer :: elapsed time  -> "
                 + Double.parseDouble(stopWatch.getTotalTimeMillis() / 1000 + "." + stopWatch.getTotalTimeMillis() % 1000));

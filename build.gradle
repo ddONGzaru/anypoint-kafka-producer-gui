@@ -46,6 +46,7 @@ jar {
 }
 
 task copyConfigDir(type: Copy, dependsOn: 'bootRepackage') {
+
     into 'build/libs/config'
     from 'src/main/resources/application.yml'
 
@@ -54,9 +55,23 @@ task copyConfigDir(type: Copy, dependsOn: 'bootRepackage') {
     }
 }
 
+task copySqlScript(type: Copy, dependsOn: jar) {
+
+    into 'build/libs/config/sql'
+    from 'src/main/resources/config/sql/truncate.sql'
+}
+
+task copyDatasetDir(type: Copy, dependsOn: jar) {
+
+    into 'build/libs/config/dataset'
+    from 'src/main/resources/config/dataset/dummy.dat'
+}
+
 task buildApp
 
 buildApp.dependsOn(copyConfigDir)
+buildApp.dependsOn(copySqlScript)
+buildApp.dependsOn(copyDatasetDir)
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.7'

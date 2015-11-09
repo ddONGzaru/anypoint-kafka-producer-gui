@@ -32,8 +32,7 @@ public class ActionController {
     @Autowired
     private KafkaMessageProducer producer;
 
-    @FXML
-    protected void handleExecuteButtonAction(ActionEvent e) {
+    public void handleExecuteButtonAction() {
 
         int pageParam = Integer.valueOf(page.getText());
 
@@ -42,20 +41,22 @@ public class ActionController {
 
         boolean enableTruncateTableJob = isTruncateTable.isSelected();
 
-        console.clear();
+        Alert startAlert = new Alert(Alert.AlertType.INFORMATION);
+        startAlert.setTitle("Anypoint Kafka Producer ver-1.0.3");
+        startAlert.setHeaderText("작업이 시작되었습니다.");
+        startAlert.showAndWait();
 
         //console.getParent().getScene().setCursor(Cursor.WAIT);
         //Platform.runLater(() -> console.getParent().getScene().setCursor(Cursor.WAIT));
 
-        producer.process(pageParam, sizeParam, enableTruncateTableJob);
+        producer.process(console, pageParam, sizeParam, enableTruncateTableJob);
 
         //Platform.runLater(() -> console.getParent().getScene().setCursor(Cursor.DEFAULT));
-        //console.getParent().getParent().getParent().getScene().setCursor(Cursor.CLOSED_HAND);
+        //console.getParent().getScene().setCursor(Cursor.DEFAULT);
+
     }
 
-    public void handleMouseEnteredAction() {
-        execBtn.setCursor(Cursor.HAND);
-    }
+    public void handleMouseEnteredAction() { execBtn.setCursor(Cursor.HAND); }
 
     public void handleMouseExitAction() {
         execBtn.setCursor(Cursor.DEFAULT);

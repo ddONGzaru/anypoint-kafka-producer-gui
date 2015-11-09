@@ -54,7 +54,7 @@
         <HBox alignment="BOTTOM_RIGHT"
             GridPane.rowIndex="3" GridPane.columnIndex="3">
             <children>
-                <Button fx:id="execBtn" onAction="#handleExecuteButtonAction" text="실행"
+                <Button fx:id="execBtn" onMouseClicked="#handleExecuteButtonAction" text="실행"
                         onMouseEntered="#handleMouseEnteredAction" onMouseExited="#handleMouseExitAction" />
             </children>
             <GridPane.margin>

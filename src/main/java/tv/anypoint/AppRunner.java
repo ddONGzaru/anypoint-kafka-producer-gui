@@ -37,9 +37,9 @@ public class AppRunner extends Application {
 
         LogbackLogAppender.setTextArea((TextArea)ddd.get(8));
 
-        Scene scene = new Scene(root, 680, 470);
+        Scene scene = new Scene(root, 680, 480);
         stage.setScene(scene);
-        stage.setTitle("Anypoint Kafka Producer ver-1.0.2");
+        stage.setTitle("Anypoint Kafka Producer ver-1.0.3");
 
         stage.show();
         stage.setResizable(false);
